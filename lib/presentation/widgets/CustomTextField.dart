@@ -1,6 +1,6 @@
-import 'package:car_doctor/presentation/resources/ColorManager.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../gen/colors.gen.dart';
 
 class CustomTextField extends StatelessWidget {
   String label;
@@ -10,19 +10,31 @@ class CustomTextField extends StatelessWidget {
   double? fontSize;
   TextInputType? type;
   String? fieldLabel;
-  final String? Function(String?) checkValidation;
-  final TextEditingController? controller;
+  int? maxLines;
+  int? minLines;
+  final bool enabled;
 
-  CustomTextField(
-      {required this.label,
-      this.alignment,
-      this.textAlign,
-      this.textColor,
-      this.fontSize,
-      required this.controller,
-      required this.checkValidation,
-      this.type = TextInputType.text,
-      this.fieldLabel = ''});
+  final String? Function(String?)? checkValidation;
+  final Function(String)? onValueChanged;
+  final TextEditingController? controller;
+  String errorText = '';
+
+  CustomTextField({
+    required this.label,
+    this.alignment,
+    this.textAlign,
+    this.textColor,
+    this.fontSize,
+    required this.controller,
+    this.checkValidation,
+    this.onValueChanged,
+    this.errorText = '',
+    this.type = TextInputType.text,
+    this.fieldLabel = '',
+    this.maxLines,
+    this.minLines,
+    this.enabled = true, // Default to true for editable
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +43,7 @@ class CustomTextField extends StatelessWidget {
         Align(
           alignment: alignment ?? Alignment.center,
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(5.0),
             child: Text(
               label,
               textAlign: textAlign,
@@ -43,17 +55,22 @@ class CustomTextField extends StatelessWidget {
           ),
         ),
         TextFormField(
+          enabled: enabled,
           keyboardType: type,
           controller: controller,
-          validator: checkValidation,
-          maxLines: 1,
+          // validator: checkValidation,
+          maxLines: maxLines ?? 1,
+          minLines: minLines,
+          onChanged: onValueChanged,
           decoration: InputDecoration(
             hintText: fieldLabel,
+            errorText: errorText,
+            hintTextDirection: TextDirection.rtl,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
             filled: true,
-            fillColor: ColorsManager.bgTextField,
+            fillColor: ColorName.bgTextField,
           ),
         ),
       ],

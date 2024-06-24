@@ -1,10 +1,14 @@
 import 'dart:async';
 
-import 'package:car_doctor/presentation/resources/ColorManager.dart';
-import 'package:car_doctor/presentation/resources/ImageManager.dart';
-import 'package:car_doctor/presentation/resources/RouteManager.dart';
+
+import 'package:car_doctor/gen/colors.gen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+
+import '../../../di/AppModule.dart';
+import '../../../gen/assets.gen.dart';
+import '../../resources/ColorManager.dart';
+import '../../resources/RouteManager.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,35 +17,68 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
+
 class _SplashScreenState extends State<SplashScreen> {
+
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 7),
-        () => Navigator.pushNamed(context, RouteManager.login));
+    final FirebaseAuth _auth = getIt<FirebaseAuth>();
+    Timer(const Duration(seconds: 7), () {
+      if (_auth.currentUser != null) {
+        Navigator.pushNamed(context, RouteManager.home);
+      } else {
+        Navigator.pushNamed(context, RouteManager.login);
+      }
+    });
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor:Colors.blue,
         body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                    decoration: const BoxDecoration(
+          child: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: ColorsManager.bg_gradient)),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
                       // color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                       image: DecorationImage(
-                        image: AssetImage(ImagesManager.road),
+                        image: AssetImage(Assets.images.road.path),
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: Lottie.asset(ImagesManager.car),
+                    child: Assets.animations.cr.lottie(
+                      height: 150,
+                      width: 150,
+                    ),
                   ),
-              SizedBox(height: 20,),
-              Text('كار دكتور', style: TextStyle(color: ColorsManager.bluedColor,fontSize: 30, fontWeight: FontWeight.bold),),
-
-            ],
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  const Text(
+                    'CAR DOCTOR',
+                    style: TextStyle(
+                        color: ColorName.whiteColor,
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
           ),
         ));
   }

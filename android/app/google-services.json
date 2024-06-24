@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "795868681852",
+    "project_id": "car-doctor-3ba16",
+    "storage_bucket": "car-doctor-3ba16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795868681852:android:e5a9ee5b6b8be83a4f5bf9",
+        "android_client_info": {
+          "package_name": "com.doctor.car.car_doctor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvh_tY5g_hHOk1_PQm6DdJCjixORi7uoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

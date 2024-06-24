@@ -5,6 +5,7 @@ class CustomButton extends StatelessWidget {
   Color textColor;
   Color bgColor;
   double? elevation;
+  double? fontSize;
   final Function()? onClick;
 
   CustomButton(
@@ -12,7 +13,7 @@ class CustomButton extends StatelessWidget {
       this.elevation = 20,
       required this.textColor,
       required this.title,
-      required this.bgColor,
+      required this.bgColor, this.fontSize = 24,
       this.onClick})
       : super(key: key);
 
@@ -31,7 +32,7 @@ class CustomButton extends StatelessWidget {
           height: 50.0,
           child: Text(title,
               style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 24, color: textColor)),
+                  fontWeight: FontWeight.bold, fontSize: fontSize, color: textColor)),
         ),
       ),
     );

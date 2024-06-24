@@ -1,0 +1,9 @@
+enum OrderServiceStatus {
+  PENDING,
+  ARRIVED,
+  RECEIVED,
+  IN_PROGRESS,
+  DELIVER,
+  COMPLETED,
+  CANCELLED,
+}

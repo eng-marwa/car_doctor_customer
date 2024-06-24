@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#FF192d45</color>
+    <color name="primaryTextColor">#FFc25e40</color>
+    <color name="primaryAssentColor">#FF808080</color>
+    <color name="primaryDarkColor">#FF808080</color>
+    <color name="errorColor">#FF808080</color>
+    <color name="whiteColor">#FFFFFFFF</color>
+    <color name="blackColor">#FF000000</color>
+    <color name="blueColor">#ff181879</color>
+    <color name="beigeF0Color">#FFF0EFED</color>
+    <color name="borderTextField">#FFF8F6F4</color>
+    <color name="bgTextField">#83A1A1A1</color>
+    <color name="greyLinkColor">#ff1f1e1e</color>
+    <color name="whiteLinkColor">#ffd1e0d3</color>
+    <color name="greyColor">#ff343434</color>
+    <color name="redTextColor">#ffe10a0a</color>
+    <color name="lightGreyColor">#ffdddce1</color>
+    <color name="redColor">#FFF44336</color>
+    <color name="lightBlueColor">#ff9999e8</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="secondGreyColor">#ffcbcbcb</color>
+    <color name="secondBeigeF0Color">#ff646464</color>
+    <color name="redContainerColor">#FFedaba6</color>
+    <color name="lightGreenColor">#90ee90</color>
+</resources>

@@ -10,6 +10,7 @@ class CustomTextLink extends StatelessWidget {
   TextStyle? textStyle;
   TextAlign? textAlign;
   Alignment? alignment;
+  TextDirection? textDirection;
   final Function()? onClick;
 
   CustomTextLink(
@@ -22,7 +23,7 @@ class CustomTextLink extends StatelessWidget {
       required this.textColor,
       this.alignment,
       this.onClick,
-      this.textStyle})
+      this.textStyle, this.textDirection})
       : super(key: key);
 
   @override
@@ -31,7 +32,7 @@ class CustomTextLink extends StatelessWidget {
       alignment: alignment ?? Alignment.center,
       child: TextButton(
         onPressed: onClick,
-        child: Text(text,
+        child: Text(text,textDirection: textDirection,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: fontSize,

@@ -1,0 +1,1 @@
+enum OrdersStatus { previous, current }

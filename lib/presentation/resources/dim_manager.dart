@@ -1,0 +1,1 @@
+const navBarDimen = 80.0;

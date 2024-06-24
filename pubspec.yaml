@@ -38,6 +38,26 @@ dependencies:
   firebase_crashlytics:
   firebase_database:
   cloud_firestore:
+  bloc:
+  flutter_bloc:
+  equatable:
+  get_it:
+  injectable:
+  flutter_gen:
+  dio:
+  dartz:
+  flutter_screenutil:
+  easy_localization:
+  flutter_rating_bar:
+  geolocator:
+  google_maps_flutter:
+  geocoding:
+  another_stepper:
+  formz:
+  shared_preferences:
+  libphonenumber:
+  firebase_app_check:
+  intl:
 
 
 
@@ -48,7 +68,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
 
+
+  injectable_generator:
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -66,11 +89,27 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
   assets:
-    - images/
-  #   - images/a_dot_ham.jpeg
+    - assets/images/
+    - assets/animations/
+  # To add assets to your application, add an assets section, like this:
+
+flutter_gen:
+  outputs:
+    package_parameter_enabled:
+    # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  # Optional
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+    rive: true
+    lottie: true
+
+  colors:
+    inputs:
+      - assets/color/colors.xml
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
